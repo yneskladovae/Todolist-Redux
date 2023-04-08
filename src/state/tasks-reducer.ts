@@ -11,7 +11,7 @@ export const TasksReducer = (state: TasksStateType, action: ActionType): TasksSt
             }
         }
         case "ADD-TASK": {
-            const newTask = {id: v1(), title: action.payload.newTitle, isDone: false, isImportant: false}
+            const newTask = {id: v1(), title: action.payload.newTitle, isDone: false}
             return {...state, [action.payload.todolistId]: [newTask, ...state[action.payload.todolistId]]};
         }
         case "CHANGE-CHECKBOX-STATUS": {
