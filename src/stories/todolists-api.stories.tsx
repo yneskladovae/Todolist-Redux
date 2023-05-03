@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {todolistAPI} from "../api/api";
+import {taskAPI, todolistAPI} from "../api/api";
 
 export default {
     title: 'API'
@@ -69,5 +69,60 @@ export const UpdateTodolistTitle = () => {
             })
     }, [])
 
+    return <div>{JSON.stringify(state)}</div>
+}
+
+export const GetTask = () => {
+    const [state, setState] = useState<any>(null)
+    useEffect(() => {
+        const todolistId = '9e2ed0c6-2d44-4601-a225-daf443f1a93b'
+        taskAPI.getTask(todolistId)
+            .then(data => {
+                setState(data)
+            })
+    }, [])
+    return <div>{JSON.stringify(state)}</div>
+}
+
+export const CreateTask = () => {
+    const [state, setState] = useState<any>(null)
+    const taskTitle = 'JS'
+    const todolistId = '9e2ed0c6-2d44-4601-a225-daf443f1a93b'
+
+    useEffect(() => {
+        taskAPI.createTask(todolistId, taskTitle)
+            .then(data => {
+                setState(data)
+            })
+    }, [])
+    return <div>{JSON.stringify(state)}</div>
+}
+
+export const UpdateTask = () => {
+    const [state, setState] = useState<any>(null)
+    const taskTitle = 'HTML'
+    const todolistId = '9e2ed0c6-2d44-4601-a225-daf443f1a93b'
+    const taskId = '9d8b18c9-411a-4687-9e4a-e648d7856605'
+
+    useEffect(() => {
+        taskAPI.updateTask(todolistId, taskId, taskTitle)
+            .then(data => {
+                setState(data)
+            })
+    }, [])
+    return <div>{JSON.stringify(state)}</div>
+}
+
+export const DeleteTask = () => {
+    const [state, setState] = useState<any>(null)
+    const todolistId = '9e2ed0c6-2d44-4601-a225-daf443f1a93b'
+    const taskId = 'eec7193e-f966-4907-a593-493b3c7ba1e8'
+
+    useEffect(() => {
+        taskAPI.deleteTodolist(todolistId, taskId)
+            .then(data => {
+                setState(data)
+            })
+    }, [])
     return <div>{JSON.stringify(state)}</div>
 }
