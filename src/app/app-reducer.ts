@@ -42,14 +42,12 @@ export const initializeAppTC = () => (dispatch: Dispatch) => {
         } else {
 
         }
-
         dispatch(setAppInitializedAC(true));
     })
 }
 
 export type SetAppErrorActionType = ReturnType<typeof setAppErrorAC>
 export type SetAppStatusActionType = ReturnType<typeof setAppStatusAC>
-
 
 type ActionsType =
     | SetAppErrorActionType

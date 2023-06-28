@@ -43,7 +43,6 @@ export const todolistsAPI = {
     }
 }
 
-
 export type LoginParamsType = {
     email: string
     password: string
