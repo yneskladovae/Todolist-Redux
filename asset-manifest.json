@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Todolist-lesson/static/css/main.e6c13ad2.css",
+    "main.js": "/Todolist-lesson/static/js/main.1cb56693.js",
+    "static/media/logo.png": "/Todolist-lesson/static/media/logo.a2dd338f00950dfa5ba5.png",
+    "index.html": "/Todolist-lesson/index.html",
+    "main.e6c13ad2.css.map": "/Todolist-lesson/static/css/main.e6c13ad2.css.map",
+    "main.1cb56693.js.map": "/Todolist-lesson/static/js/main.1cb56693.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.1cb56693.js"
+  ]
+}
