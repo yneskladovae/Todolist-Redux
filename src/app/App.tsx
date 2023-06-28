@@ -3,9 +3,7 @@ import './App.css'
 import logo from '../assets/img/logo.png'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
-import {useDispatch, useSelector} from 'react-redux'
-import {AppRootStateType} from './store'
-import {initializeAppTC, RequestStatusType} from './app-reducer'
+import {initializeAppTC} from './app-reducer'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {Login} from '../features/Login/Login'
 import {logoutTC} from '../features/Login/auth-reducer'
@@ -16,20 +14,20 @@ import {
   Container,
   IconButton,
   LinearProgress,
-  Toolbar,
-  Typography
+  Toolbar
 } from '@mui/material';
-import {Menu} from '@mui/icons-material'
+import {useAppDispatch} from "../hooks/useAppDispatch";
+import {useAppSelector} from "../hooks/useAppSelector";
 
 type PropsType = {
   demo?: boolean
 }
 
 function App({demo = false}: PropsType) {
-  const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
-  const isInitialized = useSelector<AppRootStateType, boolean>((state) => state.app.isInitialized)
-  const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
-  const dispatch = useDispatch<any>()
+  const status = useAppSelector((state) => state.app.status)
+  const isInitialized = useAppSelector((state) => state.app.isInitialized)
+  const isLoggedIn = useAppSelector(state => state.auth.isLoggedIn)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(initializeAppTC())
@@ -41,7 +39,7 @@ function App({demo = false}: PropsType) {
 
   if (!isInitialized) {
     return <div
-      style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
+      style={{position: 'fixed', top: '50%', textAlign: 'center', width: '100%'}}>
       <CircularProgress/>
     </div>
   }
